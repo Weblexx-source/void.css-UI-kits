@@ -1,0 +1,3336 @@
+/* ==========================================================================
+   MONOCHROME UI KIT — globals.css
+   Черно-белая тема: токены, кнопки, инпуты, скролл, ползунки, селекты,
+   shimmer-анимации, прогрессбары, спиннеры, морфинг кнопок и многое другое.
+   ========================================================================== */
+
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+/* ==========================================================================
+   1. ТОКЕНЫ ТЕМЫ
+   ========================================================================== */
+
+@theme inline {
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.13 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.13 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.13 0 0);
+  --primary: oklch(0.13 0 0);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0 0);
+  --secondary-foreground: oklch(0.13 0 0);
+  --muted: oklch(0.96 0 0);
+  --muted-foreground: oklch(0.5 0 0);
+  --accent: oklch(0.94 0 0);
+  --accent-foreground: oklch(0.13 0 0);
+  --destructive: oklch(0.25 0 0);
+  --border: oklch(0.9 0 0);
+  --input: oklch(0.9 0 0);
+  --ring: oklch(0.5 0 0);
+  --chart-1: oklch(0.2 0 0);
+  --chart-2: oklch(0.4 0 0);
+  --chart-3: oklch(0.6 0 0);
+  --chart-4: oklch(0.75 0 0);
+  --chart-5: oklch(0.88 0 0);
+  --radius: 0.75rem;
+  --sidebar: oklch(0.98 0 0);
+  --sidebar-foreground: oklch(0.13 0 0);
+  --sidebar-primary: oklch(0.13 0 0);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.94 0 0);
+  --sidebar-accent-foreground: oklch(0.13 0 0);
+  --sidebar-border: oklch(0.9 0 0);
+  --sidebar-ring: oklch(0.5 0 0);
+
+  /* Кастомные токены UI-кита */
+  --shimmer-base: oklch(0.94 0 0);
+  --shimmer-highlight: oklch(1 0 0);
+  --glass: oklch(1 0 0 / 60%);
+  --shadow-soft: 0 1px 2px oklch(0 0 0 / 6%), 0 4px 12px oklch(0 0 0 / 6%);
+  --shadow-lifted: 0 2px 4px oklch(0 0 0 / 8%), 0 12px 32px oklch(0 0 0 / 12%);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.13 0 0);
+  --foreground: oklch(0.97 0 0);
+  --card: oklch(0.17 0 0);
+  --card-foreground: oklch(0.97 0 0);
+  --popover: oklch(0.17 0 0);
+  --popover-foreground: oklch(0.97 0 0);
+  --primary: oklch(0.97 0 0);
+  --primary-foreground: oklch(0.13 0 0);
+  --secondary: oklch(0.24 0 0);
+  --secondary-foreground: oklch(0.97 0 0);
+  --muted: oklch(0.24 0 0);
+  --muted-foreground: oklch(0.68 0 0);
+  --accent: oklch(0.27 0 0);
+  --accent-foreground: oklch(0.97 0 0);
+  --destructive: oklch(0.85 0 0);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.6 0 0);
+  --chart-1: oklch(0.92 0 0);
+  --chart-2: oklch(0.75 0 0);
+  --chart-3: oklch(0.58 0 0);
+  --chart-4: oklch(0.42 0 0);
+  --chart-5: oklch(0.28 0 0);
+  --sidebar: oklch(0.17 0 0);
+  --sidebar-foreground: oklch(0.97 0 0);
+  --sidebar-primary: oklch(0.97 0 0);
+  --sidebar-primary-foreground: oklch(0.13 0 0);
+  --sidebar-accent: oklch(0.27 0 0);
+  --sidebar-accent-foreground: oklch(0.97 0 0);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.6 0 0);
+
+  --shimmer-base: oklch(0.24 0 0);
+  --shimmer-highlight: oklch(0.34 0 0);
+  --glass: oklch(0.17 0 0 / 60%);
+  --shadow-soft: 0 1px 2px oklch(0 0 0 / 40%), 0 4px 12px oklch(0 0 0 / 40%);
+  --shadow-lifted: 0 2px 4px oklch(0 0 0 / 50%), 0 12px 32px oklch(0 0 0 / 60%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: dark;
+    --background: oklch(0.13 0 0);
+    --foreground: oklch(0.97 0 0);
+    --card: oklch(0.17 0 0);
+    --card-foreground: oklch(0.97 0 0);
+    --popover: oklch(0.17 0 0);
+    --popover-foreground: oklch(0.97 0 0);
+    --primary: oklch(0.97 0 0);
+    --primary-foreground: oklch(0.13 0 0);
+    --secondary: oklch(0.24 0 0);
+    --secondary-foreground: oklch(0.97 0 0);
+    --muted: oklch(0.24 0 0);
+    --muted-foreground: oklch(0.68 0 0);
+    --accent: oklch(0.27 0 0);
+    --accent-foreground: oklch(0.97 0 0);
+    --destructive: oklch(0.85 0 0);
+    --border: oklch(1 0 0 / 12%);
+    --input: oklch(1 0 0 / 16%);
+    --ring: oklch(0.6 0 0);
+    --chart-1: oklch(0.92 0 0);
+    --chart-2: oklch(0.75 0 0);
+    --chart-3: oklch(0.58 0 0);
+    --chart-4: oklch(0.42 0 0);
+    --chart-5: oklch(0.28 0 0);
+    --sidebar: oklch(0.17 0 0);
+    --sidebar-foreground: oklch(0.97 0 0);
+    --sidebar-primary: oklch(0.97 0 0);
+    --sidebar-primary-foreground: oklch(0.13 0 0);
+    --sidebar-accent: oklch(0.27 0 0);
+    --sidebar-accent-foreground: oklch(0.97 0 0);
+    --sidebar-border: oklch(1 0 0 / 12%);
+    --sidebar-ring: oklch(0.6 0 0);
+
+    --shimmer-base: oklch(0.24 0 0);
+    --shimmer-highlight: oklch(0.34 0 0);
+    --glass: oklch(0.17 0 0 / 60%);
+    --shadow-soft: 0 1px 2px oklch(0 0 0 / 40%), 0 4px 12px oklch(0 0 0 / 40%);
+    --shadow-lifted: 0 2px 4px oklch(0 0 0 / 50%), 0 12px 32px oklch(0 0 0 / 60%);
+  }
+}
+
+/* ==========================================================================
+   2. БАЗА: элементы, выделение, фокус
+   ========================================================================== */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply bg-background;
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Выделение текста — инверсия */
+  ::selection {
+    background: var(--foreground);
+    color: var(--background);
+  }
+
+  /* Универсальный видимый фокус */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+
+  /* Плавные переходы для интерактивных элементов */
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  summary {
+    transition:
+      color 0.2s var(--ease-smooth),
+      background-color 0.2s var(--ease-smooth),
+      border-color 0.2s var(--ease-smooth),
+      box-shadow 0.2s var(--ease-smooth),
+      transform 0.2s var(--ease-smooth),
+      opacity 0.2s var(--ease-smooth);
+  }
+
+  /* Ссылки с анимированным подчеркиванием */
+  a:not([class]) {
+    color: var(--foreground);
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s var(--ease-out-expo);
+  }
+  a:not([class]):hover {
+    background-size: 100% 1px;
+  }
+
+  /* Курсор для интерактива */
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']),
+  label[for],
+  select,
+  summary {
+    cursor: pointer;
+  }
+
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  /* Уважение к reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ==========================================================================
+   3. СКРОЛЛБАР
+   ========================================================================== */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--muted-foreground) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in oklch, var(--foreground) 25%, transparent);
+  border-radius: 999px;
+  border: 2px solid var(--background);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklch, var(--foreground) 45%, transparent);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Тонкий скролл для внутренних областей */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Скрытый скролл (с сохранением прокрутки) */
+.scrollbar-hidden {
+  scrollbar-width: none;
+}
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+/* ==========================================================================
+   4. ИНПУТЫ / TEXTAREA / SELECT
+   ========================================================================== */
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--foreground);
+  background: var(--card);
+  border: 1px solid var(--input);
+  border-radius: var(--radius-md);
+  padding: 0.625rem 0.875rem;
+  box-shadow: 0 1px 2px oklch(0 0 0 / 4%);
+  transition:
+    border-color 0.2s var(--ease-smooth),
+    box-shadow 0.2s var(--ease-smooth),
+    background-color 0.2s var(--ease-smooth);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--muted-foreground);
+}
+
+.input:hover,
+.textarea:hover,
+.select:hover {
+  border-color: color-mix(in oklch, var(--foreground) 30%, transparent);
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--foreground);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--foreground) 12%, transparent);
+}
+
+.input:disabled,
+.textarea:disabled,
+.select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--muted);
+}
+
+.textarea {
+  min-height: 6rem;
+  resize: vertical;
+}
+
+/* Инпут с подчеркиванием */
+.input-underline {
+  width: 100%;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--input);
+  border-radius: 0;
+  padding: 0.5rem 0.125rem;
+  transition: border-color 0.25s var(--ease-smooth);
+}
+.input-underline:focus {
+  outline: none;
+  border-bottom-color: var(--foreground);
+  box-shadow: 0 1px 0 0 var(--foreground);
+}
+
+/* Инпут-«пилюля» */
+.input-pill {
+  border-radius: 999px;
+  padding-inline: 1.125rem;
+}
+
+/* Нативный select со своей стрелкой */
+.select {
+  appearance: none;
+  padding-right: 2.5rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+}
+
+/* Поиск: убрать крестик webkit и стилизовать */
+input[type='search']::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+/* Number input без стрелок */
+input[type='number'].input-clean::-webkit-outer-spin-button,
+input[type='number'].input-clean::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'].input-clean {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+/* Дата/время — темная иконка календаря наследует схему через color-scheme */
+
+/* Автозаполнение без желтого фона */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--foreground);
+  -webkit-box-shadow: 0 0 0 1000px var(--card) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* ==========================================================================
+   5. CHECKBOX / RADIO / SWITCH
+   ========================================================================== */
+
+input[type='checkbox'].checkbox,
+input[type='radio'].radio {
+  appearance: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+  border: 1.5px solid var(--input);
+  background: var(--card);
+  display: inline-grid;
+  place-content: center;
+  transition: all 0.2s var(--ease-spring);
+}
+
+input[type='checkbox'].checkbox {
+  border-radius: var(--radius-sm);
+}
+input[type='radio'].radio {
+  border-radius: 50%;
+}
+
+input[type='checkbox'].checkbox:hover,
+input[type='radio'].radio:hover {
+  border-color: var(--foreground);
+}
+
+input[type='checkbox'].checkbox::before {
+  content: '';
+  width: 0.625rem;
+  height: 0.625rem;
+  transform: scale(0);
+  transition: transform 0.2s var(--ease-spring);
+  background: var(--primary-foreground);
+  clip-path: polygon(14% 44%, 0 61%, 40% 100%, 100% 16%, 84% 4%, 38% 71%);
+}
+
+input[type='radio'].radio::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.2s var(--ease-spring);
+  background: var(--primary-foreground);
+}
+
+input[type='checkbox'].checkbox:checked,
+input[type='radio'].radio:checked {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+input[type='checkbox'].checkbox:checked::before,
+input[type='radio'].radio:checked::before {
+  transform: scale(1);
+}
+
+/* Переключатель (switch) */
+input[type='checkbox'].switch {
+  appearance: none;
+  width: 2.75rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--input);
+  border: 1px solid transparent;
+  position: relative;
+  transition: background-color 0.25s var(--ease-smooth);
+}
+
+input[type='checkbox'].switch::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 3px;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 50%;
+  background: var(--card);
+  box-shadow: var(--shadow-soft);
+  transform: translateY(-50%);
+  transition: left 0.25s var(--ease-spring), width 0.2s var(--ease-smooth);
+}
+
+input[type='checkbox'].switch:active::before {
+  width: 1.375rem;
+}
+
+input[type='checkbox'].switch:checked {
+  background: var(--primary);
+}
+
+input[type='checkbox'].switch:checked::before {
+  left: calc(100% - 1.125rem - 3px);
+  background: var(--primary-foreground);
+}
+
+input[type='checkbox'].switch:checked:active::before {
+  left: calc(100% - 1.375rem - 3px);
+}
+
+/* ==========================================================================
+   6. RANGE SLIDER (ползунки)
+   ========================================================================== */
+
+input[type='range'].slider {
+  appearance: none;
+  width: 100%;
+  height: 1.25rem;
+  background: transparent;
+}
+
+/* Track */
+input[type='range'].slider::-webkit-slider-runnable-track {
+  height: 5px;
+  border-radius: 999px;
+  background: linear-gradient(
+    to right,
+    var(--foreground) 0%,
+    var(--foreground) var(--slider-progress, 50%),
+    var(--input) var(--slider-progress, 50%),
+    var(--input) 100%
+  );
+}
+input[type='range'].slider::-moz-range-track {
+  height: 5px;
+  border-radius: 999px;
+  background: var(--input);
+}
+input[type='range'].slider::-moz-range-progress {
+  height: 5px;
+  border-radius: 999px;
+  background: var(--foreground);
+}
+
+/* Thumb */
+input[type='range'].slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-top: -6.5px;
+  border-radius: 50%;
+  background: var(--background);
+  border: 2px solid var(--foreground);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s var(--ease-spring), box-shadow 0.2s var(--ease-smooth);
+}
+input[type='range'].slider::-moz-range-thumb {
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 50%;
+  background: var(--background);
+  border: 2px solid var(--foreground);
+  box-shadow: var(--shadow-soft);
+  transition: transform 0.2s var(--ease-spring);
+}
+
+input[type='range'].slider:hover::-webkit-slider-thumb {
+  transform: scale(1.2);
+}
+input[type='range'].slider:active::-webkit-slider-thumb {
+  transform: scale(1.35);
+  box-shadow: 0 0 0 8px color-mix(in oklch, var(--foreground) 10%, transparent);
+}
+input[type='range'].slider:hover::-moz-range-thumb {
+  transform: scale(1.2);
+}
+
+/* Толстый слайдер */
+input[type='range'].slider-thick::-webkit-slider-runnable-track {
+  height: 12px;
+}
+input[type='range'].slider-thick::-webkit-slider-thumb {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-top: -6px;
+}
+
+/* ==========================================================================
+   7. КНОПКИ — база и варианты
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  border-radius: var(--radius-md);
+  padding: 0.625rem 1.25rem;
+  border: 1px solid transparent;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+  transition:
+    background-color 0.2s var(--ease-smooth),
+    color 0.2s var(--ease-smooth),
+    border-color 0.2s var(--ease-smooth),
+    box-shadow 0.25s var(--ease-smooth),
+    transform 0.2s var(--ease-spring),
+    border-radius 0.4s var(--ease-out-expo),
+    width 0.4s var(--ease-out-expo),
+    padding 0.4s var(--ease-out-expo);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Размеры */
+.btn-sm {
+  padding: 0.4rem 0.875rem;
+  font-size: 0.8125rem;
+}
+.btn-lg {
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+  border-radius: var(--radius-lg);
+}
+.btn-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border-radius: var(--radius-md);
+}
+.btn-pill {
+  border-radius: 999px;
+}
+
+/* Варианты */
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: var(--shadow-soft);
+}
+.btn-primary:hover {
+  background: color-mix(in oklch, var(--primary) 88%, var(--background));
+  box-shadow: var(--shadow-lifted);
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+}
+.btn-secondary:hover {
+  background: var(--accent);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--foreground);
+  border-color: var(--border);
+}
+.btn-outline:hover {
+  border-color: var(--foreground);
+  background: color-mix(in oklch, var(--foreground) 5%, transparent);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--foreground);
+}
+.btn-ghost:hover {
+  background: var(--accent);
+}
+
+.btn-link {
+  background: transparent;
+  color: var(--foreground);
+  padding-inline: 0.25rem;
+  text-underline-offset: 4px;
+}
+.btn-link:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   8. КНОПКИ — анимации
+   ========================================================================== */
+
+/* Подъем при hover */
+.btn-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lifted);
+}
+.btn-lift:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Инверсия: заливка снизу вверх */
+.btn-invert {
+  z-index: 0;
+}
+.btn-invert::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--foreground);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+.btn-invert:hover {
+  color: var(--background);
+  border-color: var(--foreground);
+}
+.btn-invert:hover::after {
+  transform: scaleY(1);
+}
+
+/* Заливка слева направо */
+.btn-sweep {
+  z-index: 0;
+}
+.btn-sweep::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--foreground);
+  transform: translateX(-101%);
+  transition: transform 0.35s var(--ease-out-expo);
+}
+.btn-sweep:hover {
+  color: var(--background);
+  border-color: var(--foreground);
+}
+.btn-sweep:hover::after {
+  transform: translateX(0);
+}
+
+/* Блик, пробегающий по кнопке при hover */
+.btn-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent 20%,
+    oklch(1 0 0 / 30%) 50%,
+    transparent 80%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.6s var(--ease-smooth);
+  pointer-events: none;
+}
+.btn-shine:hover::before {
+  left: 130%;
+}
+
+/* Постоянный shimmer-блик (для «загружающихся» CTA) */
+.btn-shimmer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    oklch(1 0 0 / 25%) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-slide 2s linear infinite;
+  pointer-events: none;
+}
+
+/* Пульсация кольцом */
+.btn-pulse {
+  animation: btn-pulse-ring 2s var(--ease-smooth) infinite;
+}
+@keyframes btn-pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in oklch, var(--foreground) 35%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 12px transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+/* Ripple по клику (чистый CSS) */
+.btn-ripple::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, oklch(1 0 0 / 35%) 10%, transparent 10.5%);
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(10);
+  opacity: 0;
+  transition: transform 0.5s var(--ease-smooth), opacity 0.8s var(--ease-smooth);
+  pointer-events: none;
+}
+.btn-ripple:active::after {
+  transform: scale(0);
+  opacity: 1;
+  transition: 0s;
+}
+
+/* Обводка, рисующаяся по периметру */
+.btn-draw {
+  background: transparent;
+  color: var(--foreground);
+  border: none;
+  border-radius: 0;
+  background-image:
+    linear-gradient(var(--foreground), var(--foreground)),
+    linear-gradient(var(--foreground), var(--foreground)),
+    linear-gradient(var(--foreground), var(--foreground)),
+    linear-gradient(var(--foreground), var(--foreground));
+  background-repeat: no-repeat;
+  background-size: 0 1.5px, 1.5px 0, 0 1.5px, 1.5px 0;
+  background-position: top left, top right, bottom right, bottom left;
+  transition: background-size 0.3s var(--ease-smooth);
+}
+.btn-draw:hover {
+  background-size: 100% 1.5px, 1.5px 100%, 100% 1.5px, 1.5px 100%;
+}
+
+/* Текст-слайд: текст уезжает вверх, снизу приезжает копия (data-text) */
+.btn-text-slide span {
+  display: inline-block;
+  transition: transform 0.3s var(--ease-out-expo), opacity 0.3s;
+}
+.btn-text-slide::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(110%);
+  transition: transform 0.3s var(--ease-out-expo);
+}
+.btn-text-slide:hover span {
+  transform: translateY(-110%);
+  opacity: 0;
+}
+.btn-text-slide:hover::after {
+  transform: translateY(0);
+}
+
+/* Дрожание (для ошибок) */
+.btn-shake:hover {
+  animation: shake 0.4s var(--ease-smooth);
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+}
+
+/* ==========================================================================
+   9. КНОПКИ — морфинг в круг
+   ========================================================================== */
+
+/* Плавное превращение прямоугольной кнопки в круг при hover */
+.btn-morph-circle {
+  width: 11rem;
+  transition:
+    width 0.45s var(--ease-out-expo),
+    border-radius 0.45s var(--ease-out-expo),
+    background-color 0.3s var(--ease-smooth),
+    color 0.2s var(--ease-smooth),
+    transform 0.2s var(--ease-spring);
+}
+.btn-morph-circle .btn-morph-label {
+  transition: opacity 0.2s var(--ease-smooth), transform 0.3s var(--ease-out-expo);
+}
+.btn-morph-circle .btn-morph-icon {
+  position: absolute;
+  opacity: 0;
+  transform: scale(0.5) rotate(-90deg);
+  transition: opacity 0.25s var(--ease-smooth) 0.15s, transform 0.35s var(--ease-spring) 0.15s;
+}
+.btn-morph-circle:hover {
+  width: 3.25rem;
+  height: 3.25rem;
+  padding: 0;
+  border-radius: 50%;
+}
+.btn-morph-circle:hover .btn-morph-label {
+  opacity: 0;
+  transform: scale(0.6);
+}
+.btn-morph-circle:hover .btn-morph-icon {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* Морфинг в круг по состоянию (добавьте класс .is-circle через JS) */
+.btn-morph-state {
+  width: 11rem;
+  height: 3.25rem;
+  transition:
+    width 0.5s var(--ease-out-expo),
+    border-radius 0.5s var(--ease-out-expo),
+    background-color 0.3s var(--ease-smooth);
+}
+.btn-morph-state.is-circle {
+  width: 3.25rem;
+  padding: 0;
+  border-radius: 50%;
+}
+.btn-morph-state .btn-morph-label {
+  transition: opacity 0.2s var(--ease-smooth);
+}
+.btn-morph-state.is-circle .btn-morph-label {
+  opacity: 0;
+  position: absolute;
+}
+
+/* Кнопка → круг со спиннером (состояние загрузки) */
+.btn-morph-loading.is-loading {
+  width: 3.25rem;
+  height: 3.25rem;
+  padding: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  color: transparent;
+}
+.btn-morph-loading {
+  width: 11rem;
+  height: 3.25rem;
+  transition:
+    width 0.5s var(--ease-out-expo),
+    border-radius 0.5s var(--ease-out-expo),
+    color 0.15s var(--ease-smooth);
+}
+.btn-morph-loading.is-loading::after {
+  content: '';
+  position: absolute;
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  border: 2px solid color-mix(in oklch, var(--primary-foreground) 30%, transparent);
+  border-top-color: var(--primary-foreground);
+  animation: spin 0.7s linear infinite;
+}
+
+/* ==========================================================================
+   10. SHIMMER / SKELETON — анимации загрузки
+   ========================================================================== */
+
+@keyframes shimmer-slide {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+/* Базовый shimmer-блок */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+  background: var(--shimmer-base);
+  border-radius: var(--radius-md);
+}
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    100deg,
+    transparent 30%,
+    var(--shimmer-highlight) 50%,
+    transparent 70%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-slide 1.8s linear infinite;
+}
+
+/* Скелетон текста — строки */
+.shimmer-text {
+  height: 0.875rem;
+  border-radius: 999px;
+}
+.shimmer-title {
+  height: 1.5rem;
+  border-radius: var(--radius-sm);
+}
+
+/* Скелетон аватара */
+.shimmer-avatar {
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+}
+
+/* Скелетон кнопки */
+.shimmer-btn {
+  height: 2.5rem;
+  width: 8rem;
+  border-radius: var(--radius-md);
+}
+
+/* Скелетон карточки: контейнер, дети превращаются в блоки через классы выше */
+.shimmer-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Shimmer-текст (переливающийся настоящий текст) */
+.text-shimmer {
+  background: linear-gradient(
+    100deg,
+    var(--muted-foreground) 30%,
+    var(--foreground) 50%,
+    var(--muted-foreground) 70%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer-slide 2.5s linear infinite;
+}
+
+/* Пульсирующий скелетон (альтернатива shimmer) */
+.skeleton-pulse {
+  background: var(--shimmer-base);
+  border-radius: var(--radius-md);
+  animation: skeleton-pulse 1.6s var(--ease-smooth) infinite;
+}
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+/* ==========================================================================
+   11. ПРОГРЕССБАРЫ — все виды
+   ========================================================================== */
+
+/* Базовый линейный */
+.progress {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--muted);
+  overflow: hidden;
+  position: relative;
+}
+.progress-bar {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--foreground);
+  transition: width 0.5s var(--ease-out-expo);
+}
+
+/* Тонкий и толстый */
+.progress-thin { height: 4px; }
+.progress-thick { height: 14px; }
+
+/* Полосатый анимированный */
+.progress-bar-striped {
+  background-image: linear-gradient(
+    45deg,
+    oklch(1 0 0 / 20%) 25%,
+    transparent 25%,
+    transparent 50%,
+    oklch(1 0 0 / 20%) 50%,
+    oklch(1 0 0 / 20%) 75%,
+    transparent 75%
+  );
+  background-size: 1rem 1rem;
+  animation: progress-stripes 0.8s linear infinite;
+}
+@keyframes progress-stripes {
+  from { background-position: 1rem 0; }
+  to { background-position: 0 0; }
+}
+
+/* С shimmer-бликом */
+.progress-bar-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.progress-bar-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, oklch(1 0 0 / 35%) 50%, transparent 70%);
+  background-size: 200% 100%;
+  animation: shimmer-slide 1.5s linear infinite;
+}
+
+/* Индетерминированный (бесконечный) */
+.progress-indeterminate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  border-radius: 999px;
+  background: var(--foreground);
+  animation: progress-indeterminate 1.4s var(--ease-smooth) infinite;
+}
+@keyframes progress-indeterminate {
+  0% { left: -40%; }
+  60% { left: 100%; }
+  100% { left: 100%; }
+}
+
+/* Сегментированный (шаги) — контейнер flex с .progress-segment */
+.progress-segments {
+  display: flex;
+  gap: 4px;
+  width: 100%;
+}
+.progress-segment {
+  flex: 1;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--muted);
+  transition: background-color 0.3s var(--ease-smooth);
+}
+.progress-segment.is-done {
+  background: var(--foreground);
+}
+.progress-segment.is-active {
+  background: var(--foreground);
+  animation: skeleton-pulse 1.2s var(--ease-smooth) infinite;
+}
+
+/* Точечный (dots loader как прогресс) */
+.progress-dots {
+  display: inline-flex;
+  gap: 0.375rem;
+}
+.progress-dots span {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--foreground);
+  animation: dot-bounce 1.2s var(--ease-smooth) infinite;
+}
+.progress-dots span:nth-child(2) { animation-delay: 0.15s; }
+.progress-dots span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes dot-bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40% { transform: translateY(-6px); opacity: 1; }
+}
+
+/* Круговой прогресс через conic-gradient: --value: 0..100 */
+.progress-circle {
+  --value: 0;
+  --size: 5rem;
+  --thickness: 8px;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background:
+    radial-gradient(closest-side, var(--background) calc(100% - var(--thickness)), transparent calc(100% - var(--thickness) + 1px)),
+    conic-gradient(var(--foreground) calc(var(--value) * 1%), var(--muted) 0);
+  display: grid;
+  place-items: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: --value 0.5s var(--ease-smooth);
+}
+
+/* Круговой индетерминированный (кольцо-спиннер) */
+.progress-ring {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 4px solid var(--muted);
+  border-top-color: var(--foreground);
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Прогресс чтения страницы (фиксированный сверху) */
+.progress-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  z-index: 100;
+  background: transparent;
+}
+.progress-page .progress-bar {
+  border-radius: 0;
+}
+
+/* ==========================================================================
+   12. СПИННЕРЫ И ЛОАДЕРЫ
+   ========================================================================== */
+
+.spinner {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 2.5px solid color-mix(in oklch, var(--foreground) 20%, transparent);
+  border-top-color: var(--foreground);
+  animation: spin 0.7s linear infinite;
+}
+
+.spinner-lg {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-width: 3px;
+}
+
+/* Спиннер из двух дуг */
+.spinner-dual {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: 2.5px solid transparent;
+  border-top-color: var(--foreground);
+  border-bottom-color: var(--foreground);
+  animation: spin 1s var(--ease-smooth) infinite;
+}
+
+/* Пульсирующая точка */
+.spinner-pulse {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: var(--foreground);
+  animation: pulse-scale 1s var(--ease-smooth) infinite;
+}
+@keyframes pulse-scale {
+  0%, 100% { transform: scale(0.6); opacity: 0.4; }
+  50% { transform: scale(1); opacity: 1; }
+}
+
+/* Бегущие полоски (эквалайзер) */
+.spinner-bars {
+  display: inline-flex;
+  gap: 3px;
+  align-items: center;
+  height: 1.5rem;
+}
+.spinner-bars span {
+  width: 4px;
+  height: 100%;
+  border-radius: 999px;
+  background: var(--foreground);
+  animation: bar-stretch 1s var(--ease-smooth) infinite;
+}
+.spinner-bars span:nth-child(2) { animation-delay: 0.1s; }
+.spinner-bars span:nth-child(3) { animation-delay: 0.2s; }
+.spinner-bars span:nth-child(4) { animation-delay: 0.3s; }
+@keyframes bar-stretch {
+  0%, 100% { transform: scaleY(0.4); }
+  50% { transform: scaleY(1); }
+}
+
+/* ==========================================================================
+   13. КАРТОЧКИ
+   ========================================================================== */
+
+.card {
+  background: var(--card);
+  color: var(--card-foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.3s var(--ease-smooth), transform 0.3s var(--ease-out-expo), border-color 0.3s;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lifted);
+  border-color: color-mix(in oklch, var(--foreground) 25%, transparent);
+}
+
+/* Карточка с бликом при hover */
+.card-shine {
+  position: relative;
+  overflow: hidden;
+}
+.card-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent 20%, oklch(1 0 0 / 12%) 50%, transparent 80%);
+  transform: skewX(-20deg);
+  transition: left 0.7s var(--ease-smooth);
+  pointer-events: none;
+}
+.card-shine:hover::after {
+  left: 130%;
+}
+
+/* Стеклянная карточка */
+.card-glass {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ==========================================================================
+   14. ВЫПАДАЮЩИЕ СПИСКИ / DETAILS / DIALOG
+   ========================================================================== */
+
+/* Кастомный dropdown на details/summary */
+details.dropdown {
+  position: relative;
+}
+details.dropdown summary {
+  list-style: none;
+}
+details.dropdown summary::-webkit-details-marker {
+  display: none;
+}
+details.dropdown .dropdown-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 12rem;
+  background: var(--popover);
+  color: var(--popover-foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lifted);
+  padding: 0.375rem;
+  z-index: 50;
+  animation: dropdown-in 0.2s var(--ease-out-expo);
+}
+@keyframes dropdown-in {
+  from { opacity: 0; transform: translateY(-6px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.625rem;
+  border-radius: var(--radius-sm);
+  transition: background-color 0.15s var(--ease-smooth);
+}
+.dropdown-item:hover {
+  background: var(--accent);
+}
+
+/* Аккордеон */
+details.accordion {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+details.accordion + details.accordion {
+  margin-top: 0.5rem;
+}
+details.accordion summary {
+  padding: 0.875rem 1rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.2s;
+}
+details.accordion summary::-webkit-details-marker {
+  display: none;
+}
+details.accordion summary::after {
+  content: '+';
+  font-size: 1.125rem;
+  color: var(--muted-foreground);
+  transition: transform 0.3s var(--ease-out-expo);
+}
+details.accordion[open] summary::after {
+  transform: rotate(45deg);
+}
+details.accordion summary:hover {
+  background: var(--accent);
+}
+details.accordion .accordion-body {
+  padding: 0 1rem 1rem;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  animation: dropdown-in 0.25s var(--ease-out-expo);
+}
+
+/* Нативный dialog */
+dialog {
+  background: var(--popover);
+  color: var(--popover-foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lifted);
+  padding: 1.5rem;
+  max-width: min(28rem, 90vw);
+}
+dialog::backdrop {
+  background: oklch(0 0 0 / 50%);
+  backdrop-filter: blur(4px);
+}
+dialog[open] {
+  animation: dialog-in 0.3s var(--ease-out-expo);
+}
+@keyframes dialog-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ==========================================================================
+   15. БЕЙДЖИ, ЧИПЫ, ТУЛТИПЫ, РАЗДЕЛИТЕЛИ
+   ========================================================================== */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.625rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+}
+.badge-solid {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+.badge-outline {
+  border-color: var(--border);
+  color: var(--foreground);
+}
+.badge-soft {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+}
+
+/* Точка-индикатор с пульсацией */
+.dot-live {
+  position: relative;
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--foreground);
+}
+.dot-live::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: inherit;
+  animation: ping 1.5s var(--ease-smooth) infinite;
+}
+@keyframes ping {
+  0% { transform: scale(1); opacity: 0.6; }
+  80%, 100% { transform: scale(2.4); opacity: 0; }
+}
+
+/* CSS-тултип: <span class="tooltip" data-tip="Текст"> */
+.tooltip {
+  position: relative;
+}
+.tooltip::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--foreground);
+  color: var(--background);
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: 0.4rem 0.625rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s var(--ease-smooth), transform 0.25s var(--ease-out-expo);
+  z-index: 60;
+}
+.tooltip:hover::after,
+.tooltip:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Разделитель с текстом */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--muted-foreground);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* kbd */
+kbd {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.75rem;
+  background: var(--secondary);
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  border-radius: var(--radius-sm);
+  padding: 0.125rem 0.375rem;
+}
+
+/* ==========================================================================
+   16. ОБЩИЕ АНИМАЦИИ ПОЯВЛЕНИЯ
+   ========================================================================== */
+
+.animate-fade-in {
+  animation: fade-in 0.5s var(--ease-out-expo) both;
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s var(--ease-out-expo) both;
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s var(--ease-spring) both;
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Задержки для стаггера */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Плавающий элемент */
+.animate-float {
+  animation: float 4s var(--ease-smooth) infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Печатающийся текст (моноширинный, фиксированная ширина через ch) */
+.animate-typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--foreground);
+  animation:
+    typing 2.5s steps(30, end) both,
+    caret-blink 0.8s step-end infinite;
+}
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes caret-blink {
+  50% { border-color: transparent; }
+}
+
+/* Марки/бегущая строка */
+.marquee {
+  display: flex;
+  overflow: hidden;
+  gap: 2rem;
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+.marquee-track {
+  display: flex;
+  gap: 2rem;
+  flex-shrink: 0;
+  animation: marquee 20s linear infinite;
+}
+@keyframes marquee {
+  to { transform: translateX(calc(-100% - 2rem)); }
+}
+
+/* ==========================================================================
+   17. ИНПУТЫ v2 — плавающие лейблы, иконки, группы, анимированная обводка
+   ========================================================================== */
+
+/* Плавающий лейбл: <label class="field-float"><input class="input" placeholder=" "/><span>Лейбл</span></label> */
+.field-float {
+  position: relative;
+  display: block;
+}
+.field-float > .input {
+  padding-top: 1.375rem;
+  padding-bottom: 0.5rem;
+}
+.field-float > span {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  pointer-events: none;
+  transition:
+    top 0.25s var(--ease-out-expo),
+    transform 0.25s var(--ease-out-expo),
+    font-size 0.25s var(--ease-out-expo),
+    color 0.2s var(--ease-smooth),
+    letter-spacing 0.25s var(--ease-out-expo);
+}
+.field-float > .input:focus + span,
+.field-float > .input:not(:placeholder-shown) + span {
+  top: 0.375rem;
+  transform: translateY(0);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--foreground);
+}
+
+/* Инпут с иконкой: <label class="field-icon"><svg/иконка class="field-icon-left"/><input class="input"/></label> */
+.field-icon {
+  position: relative;
+  display: block;
+}
+.field-icon > .field-icon-left {
+  position: absolute;
+  left: 0.875rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted-foreground);
+  pointer-events: none;
+  display: inline-flex;
+  transition: color 0.2s var(--ease-smooth), transform 0.25s var(--ease-spring);
+}
+.field-icon > .input {
+  padding-left: 2.5rem;
+}
+.field-icon:focus-within > .field-icon-left {
+  color: var(--foreground);
+  transform: translateY(-50%) scale(1.1);
+}
+.field-icon > .field-icon-right {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted-foreground);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.field-icon > .input:has(~ .field-icon-right),
+.field-icon > .input.has-right {
+  padding-right: 3.25rem;
+}
+
+/* Группа с префиксом/суффиксом: <div class="input-group"><span class="input-addon">https://</span><input/></div> */
+.input-group {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  box-shadow: 0 1px 2px oklch(0 0 0 / 4%);
+  overflow: hidden;
+  transition: border-color 0.2s var(--ease-smooth), box-shadow 0.2s var(--ease-smooth);
+}
+.input-group:focus-within {
+  border-color: var(--foreground);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--foreground) 12%, transparent);
+}
+.input-group > .input-addon {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.875rem;
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+  background: var(--muted);
+  border-right: 1px solid var(--border);
+  white-space: nowrap;
+}
+.input-group > .input-addon:last-child {
+  border-right: none;
+  border-left: 1px solid var(--border);
+}
+.input-group > input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--foreground);
+  font-size: 0.875rem;
+  padding: 0.625rem 0.875rem;
+}
+.input-group > input::placeholder {
+  color: var(--muted-foreground);
+}
+
+/* Анимированная «бегущая» обводка при фокусе */
+.input-beam {
+  position: relative;
+  border-radius: var(--radius-md);
+  padding: 1.5px;
+  background: var(--input);
+  transition: background 0.3s var(--ease-smooth);
+}
+.input-beam > input {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: calc(var(--radius-md) - 1.5px);
+  background: var(--card);
+  color: var(--foreground);
+  font-size: 0.875rem;
+  padding: 0.625rem 0.875rem;
+}
+.input-beam > input::placeholder {
+  color: var(--muted-foreground);
+}
+.input-beam:focus-within {
+  background: conic-gradient(
+    from var(--beam-angle, 0deg),
+    var(--input) 0%,
+    var(--foreground) 12%,
+    var(--input) 30%,
+    var(--input) 50%,
+    var(--foreground) 62%,
+    var(--input) 80%
+  );
+  animation: beam-rotate 2.5s linear infinite;
+}
+@property --beam-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes beam-rotate {
+  to { --beam-angle: 360deg; }
+}
+
+/* OTP-код: <div class="otp"><input maxLength=1/>…</div> */
+.otp {
+  display: flex;
+  gap: 0.5rem;
+}
+.otp > input {
+  width: 2.75rem;
+  height: 3.25rem;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  color: var(--foreground);
+  background: var(--card);
+  border: 1.5px solid var(--input);
+  border-radius: var(--radius-md);
+  caret-color: var(--foreground);
+  transition:
+    border-color 0.2s var(--ease-smooth),
+    box-shadow 0.2s var(--ease-smooth),
+    transform 0.2s var(--ease-spring);
+}
+.otp > input:focus {
+  outline: none;
+  border-color: var(--foreground);
+  box-shadow: 0 0 0 3px color-mix(in oklch, var(--foreground) 12%, transparent);
+  transform: translateY(-2px);
+}
+.otp > input:not(:placeholder-shown) {
+  border-color: var(--foreground);
+  background: var(--secondary);
+}
+
+/* Поиск с хоткеем: <label class="field-icon search-kbd">…<span class="field-icon-right"><kbd>⌘K</kbd></span></label> */
+.search-kbd > .input {
+  padding-right: 3.5rem;
+}
+
+/* ==========================================================================
+   18. DROPDOWN v2 — секции, иконки, хоткеи, стаггер
+   ========================================================================== */
+
+details.dropdown .dropdown-menu-rich {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 15rem;
+  background: var(--popover);
+  color: var(--popover-foreground);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lifted);
+  padding: 0.375rem;
+  z-index: 50;
+  transform-origin: top left;
+  animation: menu-pop 0.25s var(--ease-out-expo);
+}
+@keyframes menu-pop {
+  from { opacity: 0; transform: translateY(-8px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Стаггер пунктов при открытии */
+details[open] .dropdown-menu-rich > * {
+  animation: fade-up 0.3s var(--ease-out-expo) both;
+}
+details[open] .dropdown-menu-rich > *:nth-child(1) { animation-delay: 0.03s; }
+details[open] .dropdown-menu-rich > *:nth-child(2) { animation-delay: 0.06s; }
+details[open] .dropdown-menu-rich > *:nth-child(3) { animation-delay: 0.09s; }
+details[open] .dropdown-menu-rich > *:nth-child(4) { animation-delay: 0.12s; }
+details[open] .dropdown-menu-rich > *:nth-child(5) { animation-delay: 0.15s; }
+details[open] .dropdown-menu-rich > *:nth-child(6) { animation-delay: 0.18s; }
+details[open] .dropdown-menu-rich > *:nth-child(7) { animation-delay: 0.21s; }
+
+.dropdown-label {
+  padding: 0.5rem 0.625rem 0.25rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.dropdown-divider {
+  height: 1px;
+  margin: 0.375rem 0.25rem;
+  background: var(--border);
+}
+.dropdown-item-rich {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  width: 100%;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.625rem;
+  border-radius: var(--radius-sm);
+  color: var(--popover-foreground);
+  transition: background-color 0.15s var(--ease-smooth), padding-left 0.2s var(--ease-out-expo);
+}
+.dropdown-item-rich:hover {
+  background: var(--accent);
+  padding-left: 0.875rem;
+}
+.dropdown-item-rich > .dropdown-icon {
+  display: inline-flex;
+  color: var(--muted-foreground);
+  transition: color 0.15s;
+}
+.dropdown-item-rich:hover > .dropdown-icon {
+  color: var(--foreground);
+}
+.dropdown-item-rich > .dropdown-kbd {
+  margin-left: auto;
+  font-size: 0.6875rem;
+  color: var(--muted-foreground);
+  font-family: var(--font-mono, ui-monospace, monospace);
+}
+.dropdown-item-rich.is-danger:hover {
+  background: color-mix(in oklch, var(--foreground) 92%, transparent);
+  color: var(--background);
+}
+.dropdown-item-rich.is-danger:hover > .dropdown-icon {
+  color: var(--background);
+}
+
+/* Вращающийся шеврон у summary: <summary>…<span class="chevron"/></summary> */
+.chevron {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-1px);
+  transition: transform 0.3s var(--ease-out-expo);
+}
+details[open] > summary .chevron {
+  transform: rotate(225deg) translateY(-1px);
+}
+
+/* ==========================================================================
+   19. АККОРДЕОН v2 — плавная высота, элегантные варианты
+   ========================================================================== */
+
+/* Плавный аккордеон: details.accordion-smooth > summary + .accordion-panel > .accordion-inner */
+details.accordion-smooth {
+  border-bottom: 1px solid var(--border);
+}
+details.accordion-smooth summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.125rem 0.25rem;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  transition: color 0.2s var(--ease-smooth);
+}
+details.accordion-smooth summary::-webkit-details-marker {
+  display: none;
+}
+details.accordion-smooth summary:hover {
+  color: var(--muted-foreground);
+}
+details.accordion-smooth summary .accordion-chevron {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  color: var(--muted-foreground);
+  transition:
+    transform 0.4s var(--ease-out-expo),
+    background-color 0.25s var(--ease-smooth),
+    color 0.25s var(--ease-smooth),
+    border-color 0.25s var(--ease-smooth);
+}
+details.accordion-smooth[open] summary .accordion-chevron {
+  transform: rotate(180deg);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+}
+details.accordion-smooth .accordion-panel {
+  overflow: hidden;
+}
+details.accordion-smooth .accordion-inner {
+  padding: 0 0.25rem 1.125rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+/* Современная плавная высота через ::details-content (Chrome/Edge/Safari 18+) */
+details.accordion-smooth::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition: block-size 0.4s var(--ease-out-expo), content-visibility 0.4s allow-discrete;
+}
+details.accordion-smooth[open]::details-content {
+  block-size: auto;
+  block-size: calc-size(auto, size);
+}
+/* Фолбэк-анимация появления контента */
+details.accordion-smooth[open] .accordion-inner {
+  animation: accordion-reveal 0.45s var(--ease-out-expo) both;
+}
+@keyframes accordion-reveal {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Аккордеон-карточка: приподнимается при открытии */
+details.accordion-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition:
+    box-shadow 0.35s var(--ease-smooth),
+    border-color 0.3s var(--ease-smooth),
+    transform 0.35s var(--ease-out-expo);
+}
+details.accordion-card + details.accordion-card {
+  margin-top: 0.625rem;
+}
+details.accordion-card summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.125rem;
+  font-weight: 500;
+  font-size: 0.9375rem;
+}
+details.accordion-card summary::-webkit-details-marker {
+  display: none;
+}
+details.accordion-card summary .accordion-num {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  transition: color 0.25s;
+}
+details.accordion-card summary .accordion-plus {
+  margin-left: auto;
+  position: relative;
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+details.accordion-card summary .accordion-plus::before,
+details.accordion-card summary .accordion-plus::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  background: var(--muted-foreground);
+  transition: transform 0.35s var(--ease-out-expo), background-color 0.25s;
+}
+details.accordion-card summary .accordion-plus::before {
+  width: 100%;
+  height: 1.5px;
+}
+details.accordion-card summary .accordion-plus::after {
+  width: 1.5px;
+  height: 100%;
+}
+details.accordion-card[open] {
+  box-shadow: var(--shadow-lifted);
+  border-color: color-mix(in oklch, var(--foreground) 30%, transparent);
+  transform: translateY(-2px);
+}
+details.accordion-card[open] summary .accordion-plus::after {
+  transform: rotate(90deg) scaleY(0);
+}
+details.accordion-card[open] summary .accordion-plus::before {
+  background: var(--foreground);
+}
+details.accordion-card[open] summary .accordion-num {
+  color: var(--foreground);
+}
+details.accordion-card::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition: block-size 0.4s var(--ease-out-expo), content-visibility 0.4s allow-discrete;
+}
+details.accordion-card[open]::details-content {
+  block-size: auto;
+  block-size: calc-size(auto, size);
+}
+details.accordion-card .accordion-inner {
+  padding: 0 1.125rem 1.125rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+}
+details.accordion-card[open] .accordion-inner {
+  animation: accordion-reveal 0.45s var(--ease-out-expo) both;
+}
+
+/* ==========================================================================
+   20. СЕГМЕНТ-КОНТРОЛ И ТАБЫ
+   ========================================================================== */
+
+/* Сегмент-контрол на radio: label > input[type=radio] + span */
+.segmented {
+  display: inline-flex;
+  padding: 0.25rem;
+  gap: 0.125rem;
+  background: var(--muted);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+}
+.segmented label {
+  position: relative;
+}
+.segmented input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.segmented span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.4rem 0.875rem;
+  border-radius: calc(var(--radius-md) - 0.25rem);
+  color: var(--muted-foreground);
+  transition:
+    color 0.2s var(--ease-smooth),
+    background-color 0.25s var(--ease-smooth),
+    box-shadow 0.25s var(--ease-smooth),
+    transform 0.2s var(--ease-spring);
+}
+.segmented input:checked + span {
+  background: var(--card);
+  color: var(--foreground);
+  box-shadow: var(--shadow-soft);
+}
+.segmented input:not(:checked) + span:hover {
+  color: var(--foreground);
+}
+.segmented input:active + span {
+  transform: scale(0.96);
+}
+
+/* Табы с подчеркиванием */
+.tabs {
+  display: flex;
+  gap: 0.25rem;
+  border-bottom: 1px solid var(--border);
+}
+.tabs label {
+  position: relative;
+}
+.tabs input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.tabs span {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  padding: 0.625rem 1rem;
+  position: relative;
+  transition: color 0.2s var(--ease-smooth);
+}
+.tabs span::after {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: -1px;
+  height: 2px;
+  background: var(--foreground);
+  transform: scaleX(0);
+  transition: transform 0.3s var(--ease-out-expo);
+}
+.tabs input:checked + span {
+  color: var(--foreground);
+}
+.tabs input:checked + span::after {
+  transform: scaleX(1);
+}
+.tabs input:not(:checked) + span:hover {
+  color: var(--foreground);
+}
+
+/* ==========================================================================
+   21. РЕЙТИНГ, ЧИПЫ, АВАТАРЫ
+   ========================================================================== */
+
+/* Звездный рейтинг на radio (порядок в DOM: 5→1, подсветка через ~) */
+.rating {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  gap: 0.125rem;
+}
+.rating input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+}
+.rating label {
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--input);
+  transition: color 0.15s var(--ease-smooth), transform 0.2s var(--ease-spring);
+}
+.rating label:hover {
+  transform: scale(1.2) rotate(-8deg);
+}
+.rating label:hover,
+.rating label:hover ~ label,
+.rating input:checked ~ label {
+  color: var(--foreground);
+}
+.rating input:checked + label {
+  animation: rating-pop 0.35s var(--ease-spring);
+}
+@keyframes rating-pop {
+  50% { transform: scale(1.35); }
+}
+
+/* Чип с удалением */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.3rem 0.5rem 0.3rem 0.75rem;
+  border-radius: 999px;
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  border: 1px solid var(--border);
+  transition: background-color 0.2s, border-color 0.2s, transform 0.2s var(--ease-spring);
+}
+.chip:hover {
+  border-color: color-mix(in oklch, var(--foreground) 30%, transparent);
+}
+.chip-close {
+  display: inline-grid;
+  place-items: center;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  line-height: 1;
+  color: var(--muted-foreground);
+  transition: background-color 0.15s, color 0.15s, transform 0.2s var(--ease-spring);
+}
+.chip-close:hover {
+  background: var(--foreground);
+  color: var(--background);
+  transform: rotate(90deg);
+}
+
+/* Стек аватаров */
+.avatar-stack {
+  display: inline-flex;
+}
+.avatar-stack > * {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  border: 2px solid var(--background);
+  background: var(--muted);
+  display: inline-grid;
+  place-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--foreground);
+  transition: transform 0.25s var(--ease-spring), z-index 0s;
+  position: relative;
+}
+.avatar-stack > * + * {
+  margin-left: -0.625rem;
+}
+.avatar-stack > *:hover {
+  transform: translateY(-4px) scale(1.1);
+  z-index: 2;
+}
+.avatar-stack > .avatar-solid {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* ==========================================================================
+   22. СТЕППЕР И ТАЙМЛАЙН
+   ========================================================================== */
+
+.stepper {
+  display: flex;
+  align-items: flex-start;
+}
+.stepper-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+  text-align: center;
+}
+.stepper-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 1rem;
+  left: calc(50% + 1.25rem);
+  right: calc(-50% + 1.25rem);
+  height: 2px;
+  background: var(--border);
+  transition: background-color 0.4s var(--ease-smooth);
+}
+.stepper-item.is-done:not(:last-child)::after {
+  background: var(--foreground);
+}
+.stepper-dot {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  border: 2px solid var(--border);
+  transition: all 0.3s var(--ease-spring);
+}
+.stepper-item.is-done .stepper-dot {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+}
+.stepper-item.is-active .stepper-dot {
+  border-color: var(--foreground);
+  color: var(--foreground);
+  background: var(--background);
+  box-shadow: 0 0 0 4px color-mix(in oklch, var(--foreground) 10%, transparent);
+  animation: btn-pulse-ring 2s var(--ease-smooth) infinite;
+}
+.stepper-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+}
+.stepper-item.is-active .stepper-label,
+.stepper-item.is-done .stepper-label {
+  color: var(--foreground);
+}
+
+/* Таймлайн */
+.timeline {
+  position: relative;
+  padding-left: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.4375rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 1.5px;
+  background: linear-gradient(to bottom, var(--foreground), var(--border));
+}
+.timeline-item {
+  position: relative;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1.75rem;
+  top: 0.3125rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 50%;
+  background: var(--background);
+  border: 2px solid var(--foreground);
+  transition: transform 0.25s var(--ease-spring), background-color 0.2s;
+}
+.timeline-item:hover::before {
+  transform: scale(1.25);
+  background: var(--foreground);
+}
+.timeline-time {
+  font-size: 0.6875rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  color: var(--muted-foreground);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   23. СПОТЛАЙТ-КАРТОЧКА, ГРАДИЕНТНАЯ ОБВОДКА, ДРОПЗОНА
+   ========================================================================== */
+
+/* Карточка со спотлайтом за курсором: обновляйте --mx/--my из JS */
+.card-spotlight {
+  position: relative;
+  overflow: hidden;
+}
+.card-spotlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    320px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in oklch, var(--foreground) 8%, transparent),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.35s var(--ease-smooth);
+  pointer-events: none;
+}
+.card-spotlight:hover::before {
+  opacity: 1;
+}
+
+/* Карточка с вращающейся обводкой */
+.card-beam {
+  position: relative;
+  border-radius: var(--radius-lg);
+  padding: 1.5px;
+  background: var(--border);
+  overflow: hidden;
+}
+.card-beam::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0%,
+    var(--foreground) 12%,
+    transparent 25%
+  );
+  animation: spin 3.5s linear infinite;
+}
+.card-beam > .card-beam-inner {
+  position: relative;
+  background: var(--card);
+  border-radius: calc(var(--radius-lg) - 1.5px);
+  padding: 1.5rem;
+}
+
+/* Дропзона загрузки файлов */
+.dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 2.25rem 1.5rem;
+  text-align: center;
+  border: 1.5px dashed var(--input);
+  border-radius: var(--radius-lg);
+  background: color-mix(in oklch, var(--muted) 40%, transparent);
+  cursor: pointer;
+  transition:
+    border-color 0.25s var(--ease-smooth),
+    background-color 0.25s var(--ease-smooth),
+    transform 0.25s var(--ease-out-expo);
+}
+.dropzone:hover,
+.dropzone.is-dragover {
+  border-color: var(--foreground);
+  background: color-mix(in oklch, var(--foreground) 4%, transparent);
+  transform: scale(1.01);
+}
+.dropzone:hover .dropzone-icon {
+  transform: translateY(-4px);
+  color: var(--foreground);
+}
+.dropzone-icon {
+  display: inline-flex;
+  color: var(--muted-foreground);
+  transition: transform 0.3s var(--ease-spring), color 0.25s;
+}
+
+/* Тост (для показа через JS/состояние) */
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--foreground);
+  color: var(--background);
+  font-size: 0.875rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lifted);
+  animation: toast-in 0.4s var(--ease-spring) both;
+  width: fit-content;
+}
+@keyframes toast-in {
+  from { opacity: 0; transform: translateY(12px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Хлебные крошки */
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  color: var(--muted-foreground);
+}
+.breadcrumbs a {
+  color: var(--muted-foreground);
+  text-decoration: none;
+  padding: 0.125rem 0.375rem;
+  border-radius: var(--radius-sm);
+  transition: color 0.15s, background-color 0.15s;
+}
+.breadcrumbs a:hover {
+  color: var(--foreground);
+  background: var(--accent);
+}
+.breadcrumbs .breadcrumbs-sep {
+  opacity: 0.5;
+}
+.breadcrumbs .is-current {
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   24. КОД — inline, блоки, терминал, diff, нумерация строк
+   ========================================================================== */
+
+/* Инлайн-код: <code class="code-inline">npm i</code> */
+.code-inline {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.8125em;
+  padding: 0.15em 0.45em;
+  border-radius: var(--radius-sm);
+  background: var(--muted);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  white-space: nowrap;
+}
+
+/* Блок кода с шапкой:
+   <div class="code-block"><div class="code-header"><span class="code-dots"/><span class="code-title">file.ts</span><button class="code-copy">Copy</button></div><pre><code>…</code></pre></div> */
+.code-block {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  overflow: hidden;
+  box-shadow: 0 1px 2px oklch(0 0 0 / 4%);
+}
+.code-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 1rem;
+  background: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+.code-dots {
+  display: inline-flex;
+  gap: 0.375rem;
+}
+.code-dots i {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 50%;
+  background: var(--input);
+  transition: background-color 0.2s;
+}
+.code-block:hover .code-dots i:nth-child(1) { background: var(--foreground); }
+.code-block:hover .code-dots i:nth-child(2) { background: color-mix(in oklch, var(--foreground) 60%, transparent); }
+.code-block:hover .code-dots i:nth-child(3) { background: color-mix(in oklch, var(--foreground) 30%, transparent); }
+.code-title {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+.code-copy {
+  margin-left: auto;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  color: var(--muted-foreground);
+  background: var(--card);
+  transition: all 0.2s var(--ease-smooth);
+}
+.code-copy:hover {
+  color: var(--background);
+  background: var(--foreground);
+  border-color: var(--foreground);
+}
+.code-copy:active {
+  transform: scale(0.94);
+}
+.code-block pre {
+  margin: 0;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: var(--foreground);
+}
+/* Монохромная «подсветка» */
+.code-block .tk-kw { font-weight: 700; }
+.code-block .tk-str { font-style: italic; color: var(--muted-foreground); }
+.code-block .tk-fn { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in oklch, var(--foreground) 35%, transparent); }
+.code-block .tk-cm { color: var(--muted-foreground); opacity: 0.7; }
+
+/* Нумерация строк: <pre class="code-lines"><span>строка</span>… */
+.code-lines {
+  counter-reset: line;
+}
+.code-lines > span {
+  display: block;
+  counter-increment: line;
+  padding-left: 2.75rem;
+  position: relative;
+  transition: background-color 0.15s;
+}
+.code-lines > span::before {
+  content: counter(line);
+  position: absolute;
+  left: 0;
+  width: 2rem;
+  text-align: right;
+  color: var(--muted-foreground);
+  opacity: 0.5;
+  user-select: none;
+}
+.code-lines > span:hover {
+  background: color-mix(in oklch, var(--foreground) 4%, transparent);
+}
+.code-lines > span.is-highlight {
+  background: color-mix(in oklch, var(--foreground) 7%, transparent);
+  box-shadow: inset 2px 0 0 var(--foreground);
+}
+/* Diff-строки */
+.code-lines > span.is-add {
+  background: color-mix(in oklch, var(--foreground) 8%, transparent);
+}
+.code-lines > span.is-add::after {
+  content: '+';
+  position: absolute;
+  left: 2.25rem;
+  font-weight: 700;
+}
+.code-lines > span.is-del {
+  opacity: 0.45;
+  text-decoration: line-through;
+}
+.code-lines > span.is-del::after {
+  content: '−';
+  position: absolute;
+  left: 2.25rem;
+  font-weight: 700;
+}
+
+/* Терминал: инвертированный блок с мигающим курсором */
+.terminal {
+  background: var(--foreground);
+  color: var(--background);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lifted);
+}
+.terminal-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 1rem;
+  border-bottom: 1px solid color-mix(in oklch, var(--background) 15%, transparent);
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.75rem;
+  opacity: 0.7;
+}
+.terminal-body {
+  padding: 1rem;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.8125rem;
+  line-height: 1.8;
+}
+.terminal-body .t-prompt {
+  opacity: 0.55;
+  user-select: none;
+}
+.terminal-body .t-muted {
+  opacity: 0.55;
+}
+.terminal-cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1.1em;
+  background: var(--background);
+  vertical-align: text-bottom;
+  animation: caret-blink 1.1s steps(1) infinite;
+}
+@keyframes caret-blink {
+  50% { opacity: 0; }
+}
+
+/* ==========================================================================
+   25. ПАНЕЛИ И МЕНЮ — сайдбар, командная палитра, навбар, док
+   ========================================================================== */
+
+/* Сайдбар-меню: <nav class="panel-menu"><a class="panel-item is-active">…</a></nav> */
+.panel-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  padding: 0.5rem;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  min-width: 13rem;
+}
+.panel-menu .panel-heading {
+  padding: 0.625rem 0.75rem 0.375rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+.panel-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  color: var(--muted-foreground);
+  position: relative;
+  transition:
+    color 0.18s var(--ease-smooth),
+    background-color 0.18s var(--ease-smooth),
+    padding-left 0.25s var(--ease-out-expo);
+  cursor: pointer;
+}
+.panel-item:hover {
+  color: var(--foreground);
+  background: var(--accent);
+  padding-left: 1rem;
+}
+.panel-item.is-active {
+  color: var(--foreground);
+  background: var(--accent);
+}
+.panel-item.is-active::before {
+  content: '';
+  position: absolute;
+  left: -0.5rem;
+  top: 20%;
+  bottom: 20%;
+  width: 3px;
+  border-radius: 999px;
+  background: var(--foreground);
+  animation: panel-marker 0.35s var(--ease-out-expo);
+}
+@keyframes panel-marker {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+.panel-item .panel-badge {
+  margin-left: auto;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.1rem 0.45rem;
+  border-radius: 999px;
+  background: var(--foreground);
+  color: var(--background);
+}
+.panel-item .panel-icon {
+  display: inline-flex;
+  transition: transform 0.25s var(--ease-spring);
+}
+.panel-item:hover .panel-icon {
+  transform: scale(1.15);
+}
+.panel-divider {
+  height: 1px;
+  margin: 0.375rem 0.5rem;
+  background: var(--border);
+}
+
+/* Командная палитра (⌘K): статичная панель для демо */
+.cmdk {
+  width: 100%;
+  max-width: 26rem;
+  background: var(--popover);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lifted);
+  overflow: hidden;
+  animation: menu-pop 0.3s var(--ease-out-expo);
+}
+.cmdk-input {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted-foreground);
+}
+.cmdk-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.9375rem;
+  color: var(--foreground);
+}
+.cmdk-input input::placeholder {
+  color: var(--muted-foreground);
+}
+.cmdk-list {
+  padding: 0.375rem;
+  max-height: 16rem;
+  overflow-y: auto;
+}
+.cmdk-item {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  width: 100%;
+  padding: 0.55rem 0.625rem;
+  font-size: 0.875rem;
+  border-radius: var(--radius-md);
+  color: var(--popover-foreground);
+  transition: background-color 0.12s;
+}
+.cmdk-item:hover,
+.cmdk-item.is-selected {
+  background: var(--accent);
+}
+.cmdk-item .cmdk-kbd {
+  margin-left: auto;
+  display: inline-flex;
+  gap: 0.25rem;
+}
+.cmdk-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.55rem 1rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.6875rem;
+  color: var(--muted-foreground);
+  background: var(--muted);
+}
+
+/* Навбар с blur */
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.75rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: color-mix(in oklch, var(--background) 75%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.navbar-brand {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.navbar-link {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.5px;
+  background: var(--foreground);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+.navbar-link:hover {
+  color: var(--foreground);
+}
+.navbar-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.navbar-link.is-active {
+  color: var(--foreground);
+  font-weight: 500;
+}
+.navbar-link.is-active::after {
+  transform: scaleX(1);
+}
+
+/* Док-панель (как в macOS): иконки увеличиваются при ховере */
+.dock {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: color-mix(in oklch, var(--card) 80%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.dock-item {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-md);
+  background: var(--muted);
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  transition: transform 0.25s var(--ease-spring), background-color 0.2s;
+  cursor: pointer;
+}
+.dock-item:hover {
+  transform: translateY(-10px) scale(1.18);
+  background: var(--background);
+}
+.dock-item:hover + .dock-item,
+.dock-item:has(+ .dock-item:hover) {
+  transform: translateY(-4px) scale(1.08);
+}
+
+/* ==========================================================================
+   26. СПОЙЛЕРЫ — blur-текст, клик-скрытие, размытая карточка
+   ========================================================================== */
+
+/* Blur-спойлер: <span class="spoiler" tabIndex={0}>секрет</span> — hover/focus раскрывает */
+.spoiler {
+  filter: blur(5px);
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: filter 0.35s var(--ease-smooth);
+  user-select: none;
+}
+.spoiler:hover,
+.spoiler:focus-visible {
+  filter: blur(0);
+  user-select: auto;
+}
+
+/* Спойлер на чекбоксе (клик — раскрыть навсегда):
+   <label class="spoiler-click"><input type="checkbox"/><span>секрет</span></label> */
+.spoiler-click {
+  cursor: pointer;
+  display: inline-block;
+}
+.spoiler-click input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+}
+.spoiler-click span {
+  display: inline-block;
+  filter: blur(5px);
+  background: var(--muted);
+  border-radius: var(--radius-sm);
+  padding: 0 0.25rem;
+  transition: filter 0.4s var(--ease-smooth), background-color 0.4s;
+  user-select: none;
+}
+.spoiler-click input:checked + span {
+  filter: blur(0);
+  background: transparent;
+  user-select: auto;
+  cursor: text;
+}
+
+/* Черный спойлер (как в Telegram): текст скрыт заливкой */
+.spoiler-solid {
+  background: var(--foreground);
+  color: var(--foreground);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 0.3s var(--ease-smooth), color 0.3s var(--ease-smooth);
+  user-select: none;
+}
+.spoiler-solid:hover,
+.spoiler-solid:focus-visible {
+  background: transparent;
+  color: inherit;
+  user-select: auto;
+}
+
+/* Спойлер-блок: размытая карточка с кнопкой поверх */
+.spoiler-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.spoiler-card > input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+}
+.spoiler-card .spoiler-card-content {
+  filter: blur(10px);
+  transform: scale(1.04);
+  transition: filter 0.5s var(--ease-smooth), transform 0.5s var(--ease-smooth);
+  pointer-events: none;
+}
+.spoiler-card .spoiler-card-cover {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  background: color-mix(in oklch, var(--background) 30%, transparent);
+  transition: opacity 0.4s var(--ease-smooth), visibility 0.4s;
+}
+.spoiler-card input:checked ~ .spoiler-card-content {
+  filter: blur(0);
+  transform: scale(1);
+  pointer-events: auto;
+}
+.spoiler-card input:checked ~ .spoiler-card-cover {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ==========================================================================
+   27. ВКЛАДКИ v2 — пилюли, вертикальные, с рамкой-карточкой
+   ========================================================================== */
+
+/* Вкладки-пилюли: label > input[type=radio] + span */
+.tabs-pill {
+  display: inline-flex;
+  gap: 0.375rem;
+}
+.tabs-pill label {
+  position: relative;
+}
+.tabs-pill input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.tabs-pill span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--muted-foreground);
+  background: transparent;
+  transition: all 0.25s var(--ease-smooth);
+}
+.tabs-pill input:checked + span {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+  box-shadow: 0 2px 8px color-mix(in oklch, var(--foreground) 20%, transparent);
+}
+.tabs-pill input:not(:checked) + span:hover {
+  border-color: var(--foreground);
+  color: var(--foreground);
+}
+.tabs-pill input:active + span {
+  transform: scale(0.95);
+}
+
+/* Вертикальные вкладки */
+.tabs-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  border-left: 1px solid var(--border);
+}
+.tabs-vertical label {
+  position: relative;
+}
+.tabs-vertical input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.tabs-vertical span {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  padding: 0.5rem 1rem;
+  position: relative;
+  transition: color 0.2s var(--ease-smooth), padding-left 0.25s var(--ease-out-expo);
+}
+.tabs-vertical span::before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  top: 15%;
+  bottom: 15%;
+  width: 2px;
+  background: var(--foreground);
+  transform: scaleY(0);
+  transition: transform 0.3s var(--ease-out-expo);
+}
+.tabs-vertical input:checked + span {
+  color: var(--foreground);
+  font-weight: 500;
+}
+.tabs-vertical input:checked + span::before {
+  transform: scaleY(1);
+}
+.tabs-vertical input:not(:checked) + span:hover {
+  color: var(--foreground);
+  padding-left: 1.25rem;
+}
+
+/* Вкладки-«папки» (browser style) */
+.tabs-folder {
+  display: flex;
+  gap: 0.25rem;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--border);
+}
+.tabs-folder label {
+  position: relative;
+}
+.tabs-folder input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+.tabs-folder span {
+  display: inline-block;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--muted-foreground);
+  padding: 0.5rem 1.125rem;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  margin-bottom: -1px;
+  transition: all 0.2s var(--ease-smooth);
+}
+.tabs-folder input:checked + span {
+  color: var(--foreground);
+  background: var(--background);
+  border-color: var(--border);
+  border-bottom: 1px solid var(--background);
+}
+.tabs-folder input:not(:checked) + span:hover {
+  color: var(--foreground);
+  background: var(--accent);
+  border-radius: var(--radius-md);
+}
+
+/* ==========================================================================
+   28. ЕЩЕ — алерты, таблица, пагинация, kbd, цитата, счетчик-заглушка
+   ========================================================================== */
+
+/* Алерты/коллауты */
+.alert {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--card);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+.alert .alert-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  margin-top: 0.125rem;
+}
+.alert .alert-title {
+  font-weight: 600;
+  margin-bottom: 0.125rem;
+}
+.alert .alert-desc {
+  color: var(--muted-foreground);
+}
+.alert-accent {
+  border-left: 3px solid var(--foreground);
+}
+.alert-solid {
+  background: var(--foreground);
+  color: var(--background);
+  border-color: var(--foreground);
+}
+.alert-solid .alert-desc {
+  color: color-mix(in oklch, var(--background) 70%, transparent);
+}
+.alert-dashed {
+  border-style: dashed;
+  background: color-mix(in oklch, var(--muted) 40%, transparent);
+}
+
+/* Таблица */
+.table-wrap {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.table th {
+  text-align: left;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  padding: 0.75rem 1rem;
+  background: var(--muted);
+  border-bottom: 1px solid var(--border);
+}
+.table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.table tbody tr {
+  transition: background-color 0.15s;
+}
+.table tbody tr:hover {
+  background: color-mix(in oklch, var(--foreground) 3%, transparent);
+}
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Пагинация */
+.pagination {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.pagination button {
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding: 0 0.5rem;
+  display: inline-grid;
+  place-items: center;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border-radius: var(--radius-md);
+  color: var(--muted-foreground);
+  border: 1px solid transparent;
+  transition: all 0.2s var(--ease-smooth);
+}
+.pagination button:hover:not(:disabled):not(.is-current) {
+  color: var(--foreground);
+  background: var(--accent);
+}
+.pagination button.is-current {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+}
+.pagination button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.pagination .pagination-dots {
+  color: var(--muted-foreground);
+  padding: 0 0.25rem;
+  user-select: none;
+}
+
+/* Цитата */
+.quote {
+  position: relative;
+  padding: 1.25rem 1.5rem 1.25rem 2rem;
+  border-left: 3px solid var(--foreground);
+  background: color-mix(in oklch, var(--muted) 50%, transparent);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-style: italic;
+}
+.quote::before {
+  content: '\201C';
+  position: absolute;
+  left: 0.625rem;
+  top: 0.25rem;
+  font-size: 2.5rem;
+  line-height: 1;
+  color: color-mix(in oklch, var(--foreground) 25%, transparent);
+  font-style: normal;
+}
+.quote cite {
+  display: block;
+  margin-top: 0.625rem;
+  font-size: 0.8125rem;
+  font-style: normal;
+  color: var(--muted-foreground);
+}
